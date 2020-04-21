@@ -1,4 +1,5 @@
 package com.ait.weatherapp.data
 
-class City {
-}
+data class City (
+    var cityName : String
+)

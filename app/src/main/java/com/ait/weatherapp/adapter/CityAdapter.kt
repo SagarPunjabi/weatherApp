@@ -36,7 +36,7 @@ class CityAdapter : RecyclerView.Adapter<CityAdapter.ViewHolder> {
         holder.btnDelete.setOnClickListener{
             deleteCity(holder.adapterPosition)
         }
-        
+
     }
 
     private fun deleteCity(position: Int)
@@ -45,7 +45,7 @@ class CityAdapter : RecyclerView.Adapter<CityAdapter.ViewHolder> {
         notifyItemRemoved(position)
     }
 
-    private fun addCity(city: City){
+    public fun addCity(city: City){
         citiesList.add(city)
         notifyItemInserted(citiesList.lastIndex)
     }
