@@ -1,11 +1,15 @@
 package com.ait.weatherapp.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.ait.weatherapp.R
+import com.ait.weatherapp.ScrollingActivity
+import com.ait.weatherapp.WeatherDetailsActivity
 import com.ait.weatherapp.data.City
 import kotlinx.android.synthetic.main.city_row.view.*
 
@@ -37,7 +41,13 @@ class CityAdapter : RecyclerView.Adapter<CityAdapter.ViewHolder> {
             deleteCity(holder.adapterPosition)
         }
 
+        holder.btnDetails.setOnClickListener {
+            (context as ScrollingActivity).weatherDetails(currentCity)
+        }
+
     }
+
+
 
     private fun deleteCity(position: Int)
     {

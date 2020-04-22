@@ -7,4 +7,6 @@
     <string name="action_settings">Settings</string>
     <string name="city_name">City Name</string>
     <string name="click_for_details">Click for Details</string>
+    <string name="details">Details</string>
+    <string name="sun_set">Sun Set:</string>
 </resources>

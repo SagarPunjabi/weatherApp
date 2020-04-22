@@ -1,5 +1,6 @@
 package com.ait.weatherapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
@@ -48,6 +49,13 @@ class ScrollingActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    fun weatherDetails(city :City){
+        var intent = Intent()
+        intent.setClass(this,WeatherDetailsActivity::class.java)
+        intent.putExtra("CITY_NAME", city.cityName)
+        startActivity(intent)
     }
 
 
