@@ -52,12 +52,22 @@ class WeatherDetailsActivity : AppCompatActivity() {
                     var weatherData = response.body()
 
                     tvTemp.text = weatherData?.main?.temp.toString()
-                    tvSunsetTime.text = weatherData?.sys?.sunset.toString()
+                    tvSunSetTime.text = {
+                        val sdf = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+                        val date = java.util.Date(weatherData?.sys?.sunset.toString())
+                        sdf.format(date)
+                    }.toString()
+
                     tvSunRiseTime.text = {
                         val sdf = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
                         val date = java.util.Date(weatherData?.sys?.sunrise.toString())
                         sdf.format(date)
                     }.toString()
+
+                    tvHumidity.text = weatherData?.main?.humidity.toString()
+
+
+
                 }
 
                 Log.d("Success", "${response.message()}")
