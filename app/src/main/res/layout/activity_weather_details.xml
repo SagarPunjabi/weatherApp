@@ -49,74 +49,83 @@
         app:layout_constraintStart_toEndOf="@+id/ivWeatherIcon"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="286dp" />
-
     <TextView
         android:id="@+id/tvDetails"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
         android:text="@string/details"
         android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="340dp" />
+
+    <ImageView
+        android:id="@+id/ivSunRise"
+        android:layout_width="74dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:srcCompat="@mipmap/sunrise" />
 
-    <TextView
-        android:id="@+id/tvSunSet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/sun_set"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetails" />
+    <ImageView
+        android:id="@+id/ivSunSet"
+        android:layout_width="74dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/ivSunRise"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:srcCompat="@mipmap/sunset" />
 
-    <TextView
-        android:id="@+id/tvSunsetTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/tvSunSet"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetails" />
-
-    <TextView
-        android:id="@+id/tvSunRise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sun Rise"
-        app:layout_constraintStart_toStartOf="@+id/tvSunSet"
-        app:layout_constraintTop_toBottomOf="@+id/tvSunSet" />
+    <ImageView
+        android:id="@+id/ivHumidity"
+        android:layout_width="74dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/ivSunSet"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:srcCompat="@mipmap/humidity" />
 
     <TextView
         android:id="@+id/tvSunRiseTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/tvSunRise"
-        app:layout_constraintTop_toBottomOf="@+id/tvSunsetTime" />
+        app:layout_constraintStart_toStartOf="@+id/ivSunRise"
+        app:layout_constraintTop_toBottomOf="@+id/ivSunRise" />
+
+    <TextView
+        android:id="@+id/tvSunSetTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/ivSunSet"
+        app:layout_constraintTop_toBottomOf="@+id/ivSunSet" />
 
     <TextView
         android:id="@+id/tvHumidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Humdity"
-        app:layout_constraintStart_toStartOf="@+id/tvSunRise"
-        app:layout_constraintTop_toBottomOf="@+id/tvSunRise" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/tvHumidity"
-        app:layout_constraintTop_toBottomOf="@+id/tvSunRiseTime" />
+        app:layout_constraintStart_toStartOf="@+id/ivHumidity"
+        app:layout_constraintTop_toBottomOf="@+id/ivHumidity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
