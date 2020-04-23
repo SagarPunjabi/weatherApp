@@ -33,7 +33,7 @@ class WeatherDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.weathermap) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-
+        //set the city title
         var city = intent.getStringExtra("CITY_NAME")
         tvCity.text = city
 
@@ -44,15 +44,11 @@ class WeatherDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         var weatherAPI = retrofit.create(WeatherAPI::class.java)
 
-
         var weatherCall = weatherAPI.getWeatherDetails(
             city,
             "imperial",
             "9b4905abe2faa7c4b0235e30ec4af256"
         )
-
-
-
 
         weatherCall.enqueue(object : Callback<WeatherResult> {
             override fun onResponse(call: Call<WeatherResult>, response: Response<WeatherResult>) {
@@ -61,18 +57,22 @@ class WeatherDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
                 } else {
                     var weatherData = response.body()
 
+                    //get the city temperature
                     tvTemp.text = weatherData?.main?.temp.toString()
-
+                    //get weather description
                     tvWeatherDescription.text = weatherData?.weather?.get(0)?.description.toString()
 
+                    //get and set Sunrise and Sunset times
                     val sunSet = response.body()?.sys?.sunset!!.toLong()
                     tvSunSetTime.text = setSunTime(sunSet)
 
                     val sunRise = response.body()?.sys?.sunrise!!.toLong()
                     tvSunRiseTime.text = setSunTime(sunRise)
 
+                    //set the humidity
                     tvHumidity.text = weatherData?.main?.humidity.toString()
 
+                    //get weather icon
                     Glide.with(this@WeatherDetailsActivity)
                         .load(
                             ("https://openweathermap.org/img/w/" +
@@ -80,16 +80,16 @@ class WeatherDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
                                     + ".png")
                         )
                         .into(ivWeatherIcon)
+
+                    //set city coordinates on map
                     var cityLat = weatherData?.coord?.lat!!.toDouble()
                     var cityLon = weatherData?.coord?.lon!!.toDouble()
                     val city = LatLng(cityLat,cityLon)
                     mMap.addMarker(MarkerOptions().position(city).title("Marker in $city"))
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(city,5f))
-                    
+
                 }
 
-                Log.d("Success", "${response.message()}")
-                Log.d("Success", "${response.body()}")
             }
 
             override fun onFailure(call: Call<WeatherResult>, t: Throwable) {
@@ -119,10 +119,5 @@ class WeatherDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
-        // Add a marker in Sydney and move the camera
-//        val sydney = LatLng(-34.0, 151.0)
-//        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 }

@@ -21,6 +21,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
 
 class ScrollingActivity : AppCompatActivity() {
 
@@ -48,6 +49,11 @@ class ScrollingActivity : AppCompatActivity() {
             }
 
         }
+
+        MaterialTapTargetPrompt.Builder(this)
+            .setTarget(fabAddCity)
+            .setPrimaryText("Add Cities")
+            .setSecondaryText("Click here to add cities").show()
 
     }
 
