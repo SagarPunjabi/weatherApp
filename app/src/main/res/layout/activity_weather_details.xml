@@ -21,15 +21,15 @@
         android:id="@+id/divider"
         android:layout_width="442dp"
         android:layout_height="3dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCity" />
 
     <ImageView
         android:id="@+id/ivWeatherIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="68dp"
         android:layout_marginLeft="68dp"
         android:layout_marginTop="40dp"
@@ -69,8 +69,8 @@
         android:id="@+id/ivSunRise"
         android:layout_width="74dp"
         android:layout_height="83dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
@@ -128,4 +128,21 @@
         app:layout_constraintStart_toStartOf="@+id/ivHumidity"
         app:layout_constraintTop_toBottomOf="@+id/ivHumidity" />
 
+    <TextView
+        android:id="@+id/tvWeatherDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tvCity"
+        app:layout_constraintStart_toStartOf="@+id/tvCity"
+        app:layout_constraintTop_toBottomOf="@+id/tvCity" />
+
+    <fragment
+        android:id="@+id/weathermap"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:context=".Weathermap" />
 </androidx.constraintlayout.widget.ConstraintLayout>
